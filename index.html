@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Alain Web Studio crée des sites web modernes pour boutiques, restaurants et entreprises.">
+<meta name="theme-color" content="#0b1d33">
+<title>Alain Web Studio | Création de sites web</title>
+
+<style>
+/* =====================================================
+   1. VARIABLES ET BASE
+   ===================================================== */
+:root {
+  --blue: #0b1d33;
+  --blue2: #12365b;
+  --orange: #ff9f0a;
+  --white: #ffffff;
+  --light: #f4f7fb;
+  --text: #263449;
+  --muted: #68768a;
+  --green: #168b52;
+  --border: #e1e7ef;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: white;
+  line-height: 1.65;
+}
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; font: inherit; }
+img { max-width: 100%; }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+
+section { padding: 68px 6%; scroll-margin-top: 85px; }
+.section-title {
+  text-align: center;
+  max-width: 750px;
+  margin: 0 auto 32px;
+}
+.section-title h2 {
+  color: var(--blue);
+  font-size: clamp(27px, 4vw, 36px);
+  line-height: 1.25;
+}
+.section-title p {
+  color: var(--muted);
+  margin-top: 9px;
+  font-size: 15px;
+}
+.tag {
+  color: var(--orange);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 1.7px;
+}
+.price { color: var(--green); font-weight: bold; margin-top: 12px; }
+
+/* Boutons */
+.btn {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--blue);
+  padding: 12px 19px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: .25s;
+}
+.btn:hover {
+  background: #ffb32c;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px #ff9f0a30;
+}
+.btn-dark { background: var(--blue); color: white; }
+.btn-dark:hover { background: var(--blue2); }
+.btn-outline {
+  display: inline-block;
+  border: 1px solid #ffffffa0;
+  border-radius: 6px;
+  padding: 11px 18px;
+  color: white;
+  transition: .2s;
+}
+.btn-outline:hover { background: #ffffff16; }
+
+/* =====================================================
+   2. EN-TÊTE ET NAVIGATION
+   ===================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--blue);
+  color: white;
+  padding: 14px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 3px 15px #07132122;
+}
+.logo {
+  font-size: 21px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.logo span { color: var(--orange); }
+.logo-img {
+  display: block;
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  font-size: 14px;
+}
+header nav a { transition: color .2s; }
+header nav a:hover { color: var(--orange); }
+.nav-button {
+  background: var(--orange);
+  color: var(--blue) !important;
+  padding: 9px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+.menu-toggle {
+  display: none;
+  border: 1px solid #ffffff50;
+  background: transparent;
+  color: white;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 23px;
+}
+
+/* =====================================================
+   3. ACCUEIL (HERO)
+   ===================================================== */
+.hero {
+  min-height: 510px;
+  padding: 85px 7%;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(5,18,34,.94), rgba(5,18,34,.65)),
+    url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+  color: white;
+}
+.hero-content { max-width: 720px; }
+h1 {
+  font-size: clamp(35px, 5.3vw, 58px);
+  line-height: 1.14;
+  margin: 17px 0;
+  letter-spacing: -1px;
+}
+h1 span { color: var(--orange); }
+.hero p {
+  max-width: 590px;
+  margin-bottom: 25px;
+  color: #e0e7ef;
+  font-size: 16px;
+}
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-trust {
+  margin-top: 27px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+  color: #e0e7ef;
+  font-size: 12px;
+}
+.hero-trust span::before {
+  content: "✓";
+  color: var(--orange);
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+/* =====================================================
+   4. SERVICES
+   ===================================================== */
+.services { background: var(--light); }
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1180px;
+  margin: auto;
+}
+.service {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  transition: transform .25s, box-shadow .25s;
+}
+.service:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px #0b1d3312;
+}
+.service .symbol {
+  width: 47px;
+  height: 47px;
+  display: grid;
+  place-items: center;
+  background: #fff1d9;
+  color: #a95c00;
+  border-radius: 9px;
+  font-size: 23px;
+  margin-bottom: 15px;
+}
+.service h3 { font-size: 17px; color: var(--blue); margin-bottom: 8px; }
+.service p { font-size: 14px; color: var(--muted); }
+
+/* =====================================================
+   5. EXEMPLES (cartes + démonstrations)
+   ===================================================== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+  max-width: 1180px;
+  margin: auto;
+}
+.card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 7px 25px rgba(10,30,60,.06);
+  transition: transform .25s, box-shadow .25s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 35px rgba(10,30,60,.12);
+}
+.card img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  background: #e9edf3;
+}
+.card-content { padding: 23px; }
+.card h3 { color: var(--blue); margin-bottom: 7px; font-size: 20px; }
+.card-content p { color: var(--muted); margin-bottom: 15px; font-size: 14px; }
+.checks { list-style: none; margin: 12px 0 20px; font-size: 14px; }
+.checks li { margin: 6px 0; }
+.checks li::before {
+  content: "✓ ";
+  color: var(--green);
+  font-weight: bold;
+}
+
+.demo { background: white; }
+.demo-note {
+  max-width: 850px;
+  margin: -8px auto 25px;
+  padding: 12px 15px;
+  background: #fff6e6;
+  color: #704c00;
+  border-radius: 7px;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Démo boutique */
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1180px;
+  margin: auto;
+}
+.product {
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  overflow: hidden;
+  background: white;
+  transition: transform .25s, box-shadow .25s;
+}
+.product:hover { transform: translateY(-4px); box-shadow: 0 10px 25px #0b1d3312; }
+.product img { width: 100%; height: 215px; object-fit: cover; display: block; }
+.product-info { padding: 16px; }
+.product h3 { color: var(--blue); font-size: 16px; }
+.product .price { margin: 5px 0 12px; }
+.product .btn { width: 100%; text-align: center; }
+
+/* Démo restaurant */
+.restaurant-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--blue);
+  color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 1180px;
+  margin: auto auto 25px;
+}
+.restaurant-hero img { width: 100%; height: 260px; object-fit: cover; }
+.restaurant-intro { padding: 28px; align-self: center; }
+.restaurant-intro h3 { font-size: 25px; margin: 9px 0; }
+.restaurant-intro p { color: #dce4ef; font-size: 14px; }
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  max-width: 1180px;
+  margin: auto;
+}
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  padding: 18px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+}
+.menu-item h3 { font-size: 15px; color: var(--blue); }
+.menu-item p { color: var(--muted); font-size: 13px; }
+.menu-order { display: grid; gap: 7px; justify-items: end; }
+.menu-price { color: var(--green); font-weight: 800; }
+.menu-order .btn { font-size: 12px; padding: 8px 12px; }
+
+/* =====================================================
+   6. TARIFS
+   ===================================================== */
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1180px;
+  margin: auto;
+}
+.price-card {
+  padding: 25px 21px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 5px 18px #0b1d3308;
+  background: white;
+}
+.price-card.popular { border: 2px solid var(--orange); }
+.plan-label {
+  color: #a95c00;
+  background: #fff1d9;
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .7px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.price-card h3 { color: var(--blue); font-size: 22px; }
+.plan-price { color: var(--green); font-size: 29px; font-weight: 800; margin: 8px 0; }
+.price-card p { color: var(--muted); font-size: 13px; min-height: 43px; }
+.price-card ul { list-style: none; margin: 18px 0; }
+.price-card li { font-size: 13px; padding: 8px 0; border-bottom: 1px solid #edf0f5; }
+.price-card li::before { content: "✓ "; color: var(--green); font-weight: bold; }
+.price-card .btn { width: 100%; text-align: center; font-size: 13px; }
+.price-note {
+  max-width: 1000px;
+  margin: 25px auto 0;
+  padding: 16px;
+  background: #fff6e6;
+  border-left: 3px solid var(--orange);
+  color: #704c00;
+  font-size: 13px;
+}
+
+/* =====================================================
+   7. À PROPOS
+   ===================================================== */
+.about { background: var(--light); }
+.about-inner { max-width: 850px; margin: auto; text-align: center; }
+.about-inner > p { margin: 12px 0 23px; }
+
+/* =====================================================
+   8. CONTACT
+   ===================================================== */
+.contact-box {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  max-width: 1050px;
+  margin: auto;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 28px #0b1d330d;
+}
+.contact-info {
+  padding: 30px;
+  background: var(--blue);
+  color: white;
+}
+.contact-info h3 { font-size: 23px; margin-bottom: 12px; }
+.contact-info > p { color: #d9e3ef; font-size: 14px; margin-bottom: 25px; }
+.contact-detail { display: grid; gap: 5px; margin: 20px 0; }
+.contact-detail strong { font-size: 14px; }
+.contact-detail span { color: #d9e3ef; font-size: 13px; line-height: 1.6; }
+.contact-info .btn { margin-top: 12px; }
+#contactForm { padding: 30px; }
+.form-group { margin-bottom: 17px; }
+.form-group label {
+  display: block;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--text);
+  background: white;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px #ff9f0a20;
+}
+.form-group textarea { resize: vertical; }
+#contactForm > .btn { width: 100%; }
+.form-note { color: var(--muted); font-size: 11px; margin-top: 12px; }
+
+/* =====================================================
+   9. PIED DE PAGE
+   ===================================================== */
+footer {
+  background: #081729;
+  color: white;
+  text-align: center;
+  padding: 35px 20px 20px;
+}
+.footer-logo { display: inline-block; color: white; margin-bottom: 10px; }
+footer > p { color: #c0ccda; font-size: 13px; margin: 8px 0; }
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin: 22px 0;
+}
+.footer-links a { color: white; font-size: 13px; }
+.footer-links a:hover { color: var(--orange); }
+.copyright { border-top: 1px solid #ffffff20; padding-top: 18px; }
+
+/* =====================================================
+   10. RESPONSIVE
+   ===================================================== */
+@media (max-width: 850px) {
+  header nav { gap: 13px; font-size: 13px; }
+  .hero { padding: 70px 6%; }
+  .service-grid,
+  .products,
+  .price-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .restaurant-hero { grid-template-columns: 1fr; }
+  .restaurant-hero img { height: 220px; }
+}
+@media (max-width: 700px) {
+  .contact-box { grid-template-columns: 1fr; }
+  .contact-info,
+  #contactForm { padding: 22px; }
+}
+@media (max-width: 650px) {
+  header { padding: 13px 5%; }
+  .logo-img { width: 125px; }
+  .menu-toggle { display: block; }
+  header nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 18px 5%;
+    background: var(--blue);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    box-shadow: 0 10px 18px #07132130;
+  }
+  header nav.open { display: flex; }
+  header nav a { padding: 5px 0; }
+  header nav .nav-button { text-align: center; padding: 10px; }
+
+  .hero { min-height: 440px; padding: 58px 6%; }
+  .hero p { font-size: 15px; }
+  section { padding: 48px 5%; }
+  .cards,
+  .service-grid { grid-template-columns: 1fr; }
+  .card img { height: 225px; }
+}
+@media (max-width: 600px) {
+  .products,
+  .menu-list,
+  .price-grid { grid-template-columns: 1fr; }
+  .product img { height: 230px; }
+  .menu-item { align-items: flex-start; }
+  .restaurant-intro { padding: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+/* Améliorations visuelles : décor, lisibilité et photos */
+.brand-link { display: flex; align-items: center; min-width: 0; }
+.logo-fallback { display: none; font-size: 20px; }
+.hero { position: relative; isolation: isolate; overflow: hidden; }
+.hero::after {
+  content: ""; position: absolute; z-index: -1; right: -90px; bottom: -160px;
+  width: 390px; height: 390px; border: 1px solid #ff9f0a66;
+  border-radius: 50%; box-shadow: 0 0 0 35px #ff9f0a0d, 0 0 0 75px #ff9f0a08;
+}
+.hero-content { position: relative; z-index: 1; }
+.tag { display: inline-block; padding: 7px 12px; border: 1px solid #ff9f0a66;
+  border-radius: 30px; background: #ff9f0a12; }
+.section-title { position: relative; }
+.section-title h2 { letter-spacing: -.5px; }
+.section-title h2::after {
+  content: ""; display: block; width: 58px; height: 4px; border-radius: 8px;
+  margin: 13px auto 0; background: linear-gradient(90deg, var(--orange), #ffd27b);
+}
+.service, .card, .product, .price-card, .contact-box { box-shadow: 0 10px 28px #0b1d330a; }
+.service .symbol { box-shadow: inset 0 0 0 1px #ff9f0a25; }
+.card img, .product img, .restaurant-hero img { transition: transform .35s ease; }
+.card:hover img, .product:hover img { transform: scale(1.025); }
+.card, .product { isolation: isolate; }
+.card img, .product img { position: relative; }
+.product .btn { border-radius: 7px; }
+.price-card.popular { box-shadow: 0 12px 32px #ff9f0a20; }
+.contact-info { position: relative; overflow: hidden; }
+.contact-info::after {
+  content: ""; position: absolute; width: 180px; height: 180px; right: -75px; bottom: -80px;
+  border: 1px solid #ffffff30; border-radius: 50%; box-shadow: 0 0 0 22px #ffffff08;
+  pointer-events: none;
+}
+.contact-info > * { position: relative; z-index: 1; }
+footer .footer-logo { font-size: 23px; }
+footer .footer-logo span { color: var(--orange); }
+@media (max-width: 650px) {
+  .logo-img { width: 125px; }
+  .logo-fallback { font-size: 17px; white-space: normal; line-height: 1.2; }
+  .hero::after { width: 240px; height: 240px; right: -120px; bottom: -90px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card img, .product img { transition: none !important; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     EN-TÊTE
+     ===================================================== -->
+<header>
+  <a href="#accueil" class="brand-link" aria-label="Alain Web Studio, retour à l'accueil">
+    <img src="./logo.png" alt="Alain Web Studio" class="logo-img"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+    <span class="logo logo-fallback">Alain <span>Web Studio</span></span>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navigation">☰</button>
+
+  <nav id="navigation" aria-label="Navigation principale">
+    <a href="#accueil">Accueil</a>
+    <a href="#services">Services</a>
+    <a href="#exemples">Exemples</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#contact" class="nav-button">Demander un devis</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- =====================================================
+     1. ACCUEIL
+     ===================================================== -->
+<section class="hero" id="accueil">
+  <div class="hero-content">
+    <div class="tag">Création web • Design • Solutions digitales</div>
+    <h1>Donnez une vraie visibilité <span>à votre entreprise.</span></h1>
+    <p>
+      Nous créons des sites web modernes pour les boutiques, les restaurants
+      et les entreprises qui veulent mieux présenter leurs produits,
+      attirer des clients et développer leur activité.
+    </p>
+    <div class="actions">
+      <a class="btn" href="#contact">Parlons de votre projet</a>
+      <a class="btn-outline" href="#exemples">Voir nos exemples</a>
+    </div>
+    <div class="hero-trust">
+      <span>Design personnalisé</span>
+      <span>Adapté aux mobiles</span>
+      <span>Tarifs transparents</span>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     2. SERVICES
+     ===================================================== -->
+<section class="services" id="services">
+  <div class="section-title">
+    <h2>Nos services</h2>
+    <p>Des solutions numériques adaptées aux petites entreprises et aux commerçants.</p>
+  </div>
+
+  <div class="service-grid">
+    <article class="service">
+      <div class="symbol">▣</div>
+      <h3>Sites vitrines</h3>
+      <p>Présentez votre entreprise, vos services et vos coordonnées.</p>
+      <div class="price">À partir de 25 $</div>
+    </article>
+
+    <article class="service">
+      <div class="symbol">◇</div>
+      <h3>Catalogues de produits</h3>
+      <p>Affichez les photos, les descriptions et les prix de vos articles.</p>
+      <div class="price">À partir de 50 $</div>
+    </article>
+
+    <article class="service">
+      <div class="symbol">▤</div>
+      <h3>Menus de restaurants</h3>
+      <p>Présentez vos plats, les prix, les horaires et le contact.</p>
+      <div class="price">À partir de 30 $</div>
+    </article>
+
+    <article class="service">
+      <div class="symbol">✦</div>
+      <h3>Design personnalisé</h3>
+      <p>Une présentation cohérente avec les couleurs et l'identité de votre marque.</p>
+      <div class="price">Selon le projet</div>
+    </article>
+
+    <article class="service">
+      <div class="symbol">↗</div>
+      <h3>Contact WhatsApp</h3>
+      <p>Permettez aux visiteurs de vous contacter ou de commander facilement.</p>
+      <div class="price">Selon le projet</div>
+    </article>
+
+    <article class="service">
+      <div class="symbol">⚙</div>
+      <h3>Maintenance</h3>
+      <p>Modifications et mises à jour selon les besoins convenus.</p>
+      <div class="price">Sur devis</div>
+    </article>
+  </div>
+</section>
+
+<!-- =====================================================
+     3. EXEMPLES DE SITES
+     ===================================================== -->
+<section id="exemples">
+  <div class="section-title">
+    <h2>Des exemples concrets de sites web</h2>
+    <p>Découvrez comment nous pouvons présenter votre activité en ligne.</p>
+  </div>
+
+  <div class="cards">
+    <article class="card">
+      <img
+        src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1000&q=85"
+        alt="Présentation d'une boutique de mode"
+        loading="lazy" onerror="this.style.display='none'">
+      <div class="card-content">
+        <h3>Boutique de vêtements</h3>
+        <p>Un catalogue élégant pour présenter vos habits, leurs prix et les moyens de commander.</p>
+        <ul class="checks">
+          <li>Photos et prix des articles</li>
+          <li>Catalogue organisé</li>
+          <li>Commandes par WhatsApp</li>
+          <li>Adaptation aux téléphones</li>
+        </ul>
+        <a class="btn btn-dark" href="#boutique">Voir la démonstration</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img
+        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85"
+        alt="Salle de restaurant aménagée"
+        loading="lazy" onerror="this.style.display='none'">
+      <div class="card-content">
+        <h3>Site pour restaurant</h3>
+        <p>Un site qui présente votre établissement, vos spécialités et votre menu.</p>
+        <ul class="checks">
+          <li>Menu et prix des plats</li>
+          <li>Photos des spécialités</li>
+          <li>Commandes par WhatsApp</li>
+          <li>Coordonnées et horaires</li>
+        </ul>
+        <a class="btn btn-dark" href="#restaurant">Voir la démonstration</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 3a. Démonstration boutique -->
+<section class="demo" id="boutique">
+  <div class="section-title">
+    <h2>Style Chic — Boutique de mode</h2>
+    <p>Exemple fictif d'une boutique qui présente ses articles en ligne.</p>
+  </div>
+
+  <div class="demo-note">
+    Démonstration : les articles, photos et prix sont illustratifs.
+    Ils devront être remplacés par ceux du véritable commerçant.
+  </div>
+
+  <div class="products">
+    <article class="product">
+      <img
+        src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=85"
+        alt="Veste moderne"
+        loading="lazy" onerror="this.style.display='none'">
+      <div class="product-info">
+        <h3>Veste moderne</h3>
+        <p class="price">35 $</p>
+        <button class="btn" onclick="commanderBoutique('Veste moderne','35 $')">Commander</button>
+      </div>
+    </article>
+
+    <article class="product">
+      <img
+        src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=600&q=85"
+        alt="Vêtements de mode"
+        loading="lazy" onerror="this.style.display='none'">
+      <div class="product-info">
+        <h3>Ensemble tendance</h3>
+        <p class="price">28 $</p>
+        <button class="btn" onclick="commanderBoutique('Ensemble tendance','28 $')">Commander</button>
+      </div>
+    </article>
+
+    <article class="product">
+      <img
+        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=85"
+        alt="T-shirt classique"
+        loading="lazy" onerror="this.style.display='none'">
+      <div class="product-info">
+        <h3>T-shirt classique</h3>
+        <p class="price">12 $</p>
+        <button class="btn" onclick="commanderBoutique('T-shirt classique','12 $')">Commander</button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 3b. Démonstration restaurant -->
+<section class="demo" id="restaurant">
+  <div class="section-title">
+    <h2>Le Bon Goût — Restaurant</h2>
+    <p>Une présentation professionnelle avec menu et commande directe.</p>
+  </div>
+
+  <div class="restaurant-hero">
+    <img
+      src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85"
+      alt="Plat préparé pour un restaurant"
+      loading="lazy" onerror="this.style.display='none'">
+    <div class="restaurant-intro">
+      <span class="tag">Cuisine &amp; convivialité</span>
+      <h3>Bienvenue au Bon Goût</h3>
+      <p>Découvrez notre menu de démonstration et choisissez ce qui vous fait envie.</p>
+    </div>
+  </div>
+
+  <div class="menu-list">
+    <article class="menu-item">
+      <div>
+        <h3>Poulet accompagné de riz</h3>
+        <p>Un repas complet.</p>
+      </div>
+      <div class="menu-order">
+        <span class="menu-price">8 $</span>
+        <button class="btn" onclick="commanderRestaurant('Poulet accompagné de riz','8 $')">Commander</button>
+      </div>
+    </article>
+
+    <article class="menu-item">
+      <div>
+        <h3>Poisson accompagné de bananes</h3>
+        <p>Une suggestion du chef.</p>
+      </div>
+      <div class="menu-order">
+        <span class="menu-price">10 $</span>
+        <button class="btn" onclick="commanderRestaurant('Poisson accompagné de bananes','10 $')">Commander</button>
+      </div>
+    </article>
+
+    <article class="menu-item">
+      <div>
+        <h3>Hamburger maison</h3>
+        <p>Préparé sur place.</p>
+      </div>
+      <div class="menu-order">
+        <span class="menu-price">5 $</span>
+        <button class="btn" onclick="commanderRestaurant('Hamburger maison','5 $')">Commander</button>
+      </div>
+    </article>
+
+    <article class="menu-item">
+      <div>
+        <h3>Jus naturel</h3>
+        <p>Une boisson rafraîchissante.</p>
+      </div>
+      <div class="menu-order">
+        <span class="menu-price">2 $</span>
+        <button class="btn" onclick="commanderRestaurant('Jus naturel','2 $')">Commander</button>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- =====================================================
+     4. TARIFS
+     ===================================================== -->
+<section id="tarifs">
+  <div class="section-title">
+    <h2>Des tarifs clairs et accessibles</h2>
+    <p>Le prix est fixé avant le début du travail, selon le contenu et les fonctions demandées.</p>
+  </div>
+
+  <div class="price-grid">
+    <article class="price-card">
+      <span class="plan-label">POUR COMMENCER</span>
+      <h3>Essentiel</h3>
+      <div class="plan-price">25–40 $</div>
+      <p>Pour présenter une petite activité.</p>
+      <ul>
+        <li>Une page de présentation</li>
+        <li>Informations sur l'entreprise</li>
+        <li>Services et coordonnées</li>
+        <li>Bouton WhatsApp</li>
+        <li>Adaptation au téléphone</li>
+      </ul>
+      <a class="btn btn-dark" href="#contact">Demander ce pack</a>
+    </article>
+
+    <article class="price-card popular">
+      <span class="plan-label">PLUS COMPLET</span>
+      <h3>Business</h3>
+      <div class="plan-price">50–90 $</div>
+      <p>Pour présenter une entreprise plus en détail.</p>
+      <ul>
+        <li>Plusieurs sections ou pages selon devis</li>
+        <li>Galerie de photos</li>
+        <li>Présentation détaillée des services</li>
+        <li>Contact WhatsApp</li>
+        <li>Design personnalisé</li>
+      </ul>
+      <a class="btn" href="#contact">Demander ce pack</a>
+    </article>
+
+    <article class="price-card">
+      <span class="plan-label">POUR LES VENDEURS</span>
+      <h3>Boutique</h3>
+      <div class="plan-price">100–180 $</div>
+      <p>Pour présenter des produits et recevoir des commandes.</p>
+      <ul>
+        <li>Catalogue de produits</li>
+        <li>Photos et prix</li>
+        <li>Classement par catégories</li>
+        <li>Commandes par WhatsApp</li>
+        <li>Informations de livraison</li>
+      </ul>
+      <a class="btn btn-dark" href="#contact">Demander ce pack</a>
+    </article>
+  </div>
+
+  <div class="price-note">
+    <strong>Transparence :</strong> ces tarifs sont indicatifs. Le domaine, l'hébergement payant, les paiements en ligne et les fonctions supplémentaires peuvent entraîner des frais distincts. Le devis précise ce qui est inclus avant toute commande.
+  </div>
+</section>
+
+<!-- =====================================================
+     5. À PROPOS
+     ===================================================== -->
+<section class="about" id="apropos">
+  <div class="about-inner">
+    <div class="section-title">
+      <h2>Un site qui correspond à votre activité</h2>
+      <p>Un service clair, sans frais cachés.</p>
+    </div>
+    <p>
+      Alain Web Studio accompagne les commerçants, les restaurants et les petites
+      entreprises dans la création de leur présence en ligne. Chaque projet
+      commence par un échange pour comprendre vos besoins et respecter votre budget.
+    </p>
+    <a class="btn btn-dark" href="#contact">Discutons de votre projet</a>
+  </div>
+</section>
+
+<!-- =====================================================
+     6. CONTACT
+     ===================================================== -->
+<section id="contact">
+  <div class="section-title">
+    <h2>Parlons de votre projet</h2>
+    <p>Expliquez-nous votre idée. Nous pourrons discuter du budget et des fonctionnalités.</p>
+  </div>
+
+  <div class="contact-box">
+    <div class="contact-info">
+      <h3>Alain Web Studio</h3>
+      <p>Création de sites web pour commerçants, restaurants et entreprises.</p>
+
+      <div class="contact-detail">
+        <strong>Contact direct</strong>
+        <span>WhatsApp et appel sur demande</span>
+      </div>
+
+      <div class="contact-detail">
+        <strong>Nos engagements</strong>
+        <span>Un devis clair, un design adapté au téléphone et un projet expliqué avant sa réalisation.</span>
+      </div>
+
+      <div class="contact-detail">
+        <strong>Nos services</strong>
+        <span>Sites vitrines, catalogues, menus et solutions web personnalisées.</span>
+      </div>
+
+      <button class="btn" type="button" onclick="contacterStudio()">Écrire sur WhatsApp</button>
+    </div>
+
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="nom">Votre nom</label>
+        <input id="nom" name="nom" type="text" placeholder="Ex. : Alain" required>
+      </div>
+
+      <div class="form-group">
+        <label for="telephone">Votre numéro de téléphone</label>
+        <input id="telephone" name="telephone" type="tel" placeholder="Ex. : +243..." required>
+      </div>
+
+      <div class="form-group">
+        <label for="typeProjet">Type de projet</label>
+        <select id="typeProjet" name="typeProjet" required>
+          <option value="">Choisir un service</option>
+          <option value="Site vitrine">Site vitrine</option>
+          <option value="Boutique en ligne ou catalogue">Boutique en ligne ou catalogue</option>
+          <option value="Site pour restaurant">Site pour restaurant</option>
+          <option value="Design personnalisé">Design personnalisé</option>
+          <option value="Maintenance ou modification">Maintenance ou modification</option>
+          <option value="Autre projet">Autre projet</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="budget">Budget prévu</label>
+        <select id="budget" name="budget">
+          <option value="À discuter">À discuter</option>
+          <option value="Moins de 40 $">Moins de 40 $</option>
+          <option value="40 à 90 $">40 à 90 $</option>
+          <option value="90 à 180 $">90 à 180 $</option>
+          <option value="Plus de 180 $">Plus de 180 $</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Décrivez votre idée</label>
+        <textarea id="message" name="message" rows="4" placeholder="Que souhaitez-vous présenter sur votre site ?"></textarea>
+      </div>
+
+      <button class="btn btn-dark" type="submit">Envoyer ma demande</button>
+      <p class="form-note">Le formulaire prépare un message WhatsApp. Vérifiez les informations avant de l'envoyer.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- =====================================================
+     PIED DE PAGE
+     ===================================================== -->
+<footer>
+  <a class="logo footer-logo" href="#accueil">Alain <span>Web Studio</span></a>
+  <p>Des solutions web simples et professionnelles pour votre activité.</p>
+  <div class="footer-links">
+    <a href="#accueil">Accueil</a>
+    <a href="#services">Services</a>
+    <a href="#exemples">Exemples</a>
+    <a href="#tarifs">Tarifs</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <p class="copyright">
+    © <span id="annee"></span> Alain Web Studio. Tous droits réservés.
+  </p>
+</footer>
+
+<script>
+/* ---------- WhatsApp ----------
+   Numéros au format international, sans +, sans espaces ni tirets. */
+const WHATSAPP_STUDIO = "243983937101";
+const WHATSAPP_BOUTIQUE = "243983937101";
+const WHATSAPP_RESTAURANT = "243983937101";
+
+function ouvrirWhatsApp(numero, message) {
+  if (!numero || numero.includes("X")) {
+    alert("Le numéro WhatsApp n'est pas encore configuré. Modifiez le numéro dans le code du site.");
+    return;
+  }
+  const url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+function commanderBoutique(produit, prix) {
+  ouvrirWhatsApp(WHATSAPP_BOUTIQUE,
+    "Bonjour Style Chic ! Je souhaite commander cet article : " +
+    produit + " au prix de " + prix +
+    ". Pouvez-vous me donner les informations pour la commande et la livraison ?");
+}
+
+function commanderRestaurant(plat, prix) {
+  ouvrirWhatsApp(WHATSAPP_RESTAURANT,
+    "Bonjour Le Bon Goût ! Je souhaite commander : " +
+    plat + " au prix de " + prix +
+    ". Pouvez-vous me confirmer la disponibilité et les modalités de livraison ?");
+}
+
+function contacterStudio() {
+  ouvrirWhatsApp(WHATSAPP_STUDIO,
+    "Bonjour Alain Web Studio ! Je souhaite obtenir des informations sur vos services de création de sites web.");
+}
+
+/* ---------- Formulaire de devis ---------- */
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const nom = document.getElementById("nom").value.trim();
+  const telephone = document.getElementById("telephone").value.trim();
+  const typeProjet = document.getElementById("typeProjet").value;
+  const budget = document.getElementById("budget").value;
+  const messageProjet = document.getElementById("message").value.trim();
+
+  ouvrirWhatsApp(WHATSAPP_STUDIO,
+    "Bonjour Alain Web Studio ! Voici ma demande de devis :" +
+    "\nNom : " + nom +
+    "\nTéléphone : " + telephone +
+    "\nProjet : " + typeProjet +
+    "\nBudget : " + budget +
+    "\nDescription : " + (messageProjet || "À discuter") +
+    "\nMerci de me répondre.");
+});
+
+/* ---------- Menu mobile ---------- */
+const menuToggle = document.getElementById("menuToggle");
+const navigation = document.getElementById("navigation");
+
+function fermerMenu() {
+  navigation.classList.remove("open");
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Ouvrir le menu");
+  menuToggle.textContent = "☰";
+}
+
+menuToggle.addEventListener("click", function () {
+  const ouvert = navigation.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(ouvert));
+  menuToggle.setAttribute("aria-label", ouvert ? "Fermer le menu" : "Ouvrir le menu");
+  menuToggle.textContent = ouvert ? "✕" : "☰";
+});
+
+navigation.querySelectorAll("a").forEach(function (lien) {
+  lien.addEventListener("click", fermerMenu);
+});
+
+/* ---------- Année du copyright ---------- */
+document.getElementById("annee").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
